@@ -1,1 +1,3 @@
 # CS-Bot
+
+# Setup config
