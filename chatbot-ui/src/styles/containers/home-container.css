@@ -1,0 +1,36 @@
+.home-container {
+    color: aliceblue;
+    
+}
+.page-info {
+    height: 104px;
+    margin-top: 78px;
+    margin-bottom: 10px;
+}
+.page-header-title-container{
+    height: 100px;
+    font-family: autodestructbb_reg;
+    /* width: auto; */
+    font-size: 68px;
+}
+.page-header-title {
+    
+}
+
+.page-subtitle-container{
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.page-subtitle {
+    font-size: 30px;
+}
+.main-bot{
+    margin-top: 50px;
+    align-content: center;
+    text-align: center;
+    display: inline-block;
+    padding-top: 50px;
+}
+.footer-content{
+    
+  }

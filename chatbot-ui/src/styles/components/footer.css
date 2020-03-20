@@ -1,0 +1,14 @@
+ .main-footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    color: #6e48aa;
+    text-align: center;
+    position: fixed;
+}
+
+.footer-text {
+    font-family: futura\ medium\ bt;
+    font-size: large;
+}
