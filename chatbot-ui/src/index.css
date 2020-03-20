@@ -5,9 +5,35 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #262626;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwallpaperscraft.com%2Fdownload%2Fletters_words_text_122223%2F1920x1080&psig=AOvVaw0ngjXh1SvTdmHw2sx63Xz8&ust=1584295945030000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJiHn8TImugCFQAAAAAdAAAAABAE");
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: 'autodestructbb_reg';
+  src: local('autodestructbb_reg'), url(./styles/fonts/autodestructbb_reg.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'futura medium bt';
+  src: local('futura medium bt'), url(./styles/fonts/futura/futura\ medium\ bt.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'autodestructbb_reg';
+  src: local('autodestructbb_reg'), url(./styles/fonts/autodestructbb_reg.ttf) format('truetype');
+}
+
+
+@import 'styles/containers/home-container.css';
+/* @import 'styles/containers/textinput.css'; */
+
+@import 'styles/components/footer.css';

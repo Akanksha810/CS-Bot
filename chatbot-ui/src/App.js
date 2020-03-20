@@ -1,21 +1,24 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+
 import './App.css';
+
 import HomeContainer from './containers/HomeContainer';
-import styled from 'styled-components';
 
 class App extends React.Component {
+  componentDidMount() {
+    document.title = "CS-Bots";
+  }
+  
  render() {
     return (
-      <div className = "App">
-        Hello World !
+      <div className="App">
         <HomeContainer/>
+        {/* <InputContainer/> */}
       </div>
     )
-  }
+ }
 }
 
 
 
-
-export default App;
+export default (App);
