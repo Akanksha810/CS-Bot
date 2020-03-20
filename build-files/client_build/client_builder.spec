@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['client_builder.py'],
-             pathex=['D:\\Projects\\CS-Bot-1\\build\\client_build'],
+             pathex=['D:\\Projects\\CS-Bot\\CS-Bot\\build-files\\client_build'],
              binaries=[],
              datas=[],
              hiddenimports=[],
