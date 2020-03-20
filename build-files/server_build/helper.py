@@ -27,5 +27,6 @@ class Helper :
     def reset_dir_to_parent_dir(self):
         self.clear_terminal()
         self.current_working_path = os.getcwd()
-        self.bot_repo_path = self.current_working_path.split('CS-Bot')[0] + "CS-Bot-1"
+        address_hash_list = self.current_working_path.split('\\build-files')
+        self.bot_repo_path = address_hash_list[0] 
         self.change_working_path()
