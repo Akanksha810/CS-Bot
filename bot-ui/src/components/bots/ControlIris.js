@@ -64,8 +64,8 @@ class ControlIris extends React.Component {
               },
               {
                 id: 'disclaimer-1',
-                trigger:'disclaimer-2',
                 message: "This is to inform you that this SOFTWARE is in alpha phase and is made solely for educational purposes. Please don't try to tamper or induce m-code in any manner.",
+                trigger: 'disclaimer-2',
                 delay: 3700,
               },
               {
@@ -101,8 +101,12 @@ class ControlIris extends React.Component {
               {
                   id:'handover1',
                   message: 'Handing over control to Coral...',
-                  end: true,
-                  
+                  trigger: "control-transfer",
+              },
+              {
+                id: 'control-transfer',
+                message: " ",
+                end: true 
               },
               {
                 id: 'disagreement-path-1',
@@ -118,12 +122,8 @@ class ControlIris extends React.Component {
               },
               {
                 id: 'end-path',
-                message: 'Exiting this application in next 3 seconds',
-                content: (
-                  <div>
-                    {}
-                  </div>
-                ),
+                message: 'Bubbie!',
+                end:true,
               },
               
             ]}

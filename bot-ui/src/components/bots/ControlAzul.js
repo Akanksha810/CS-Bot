@@ -2,14 +2,16 @@ import React from 'react';
 import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
 import{ Redirect } from 'react-router-dom';
+import InputPortal from '../InputPortal';
+
 
 const theme = {
   background: '#f5f8fb',
   fontFamily: 'monospace',
-  headerBgColor: '#EF6C00',
+  headerBgColor: '#6960EC',
   headerFontColor: '#fff',
   headerFontSize: '15px',
-  botBubbleColor: '#EF6C00',
+  botBubbleColor: '#6960EC',
   botFontColor: '#fff',
   userBubbleColor: '#fff',
   userFontColor: '#4a4a4a',
@@ -17,10 +19,9 @@ const theme = {
 
 const steps = [
   {
-    id: 'into-message-1',
+    id: 'intro-message-1',
     message : 'Control Transfer Successful ',
     trigger: 'intro-message-2',
-    delay: 10000,
   },
   {
     id: 'intro-message-2',
@@ -29,55 +30,27 @@ const steps = [
   },
   {
     id: 'intro-message-3',
-    message: 'Hello! I am CS-Bot-FF7F50 CodeName Coral!',
+    message: 'Hello! I am CS-Bot-6960EC CodeName Azul!',
     trigger: 'intro-message-4',
   },
   {
     id : 'intro-message-4',
-    message: 'My job as Bot-FF7F50 is to make you aware of options of varying inputs which could be put here.',
-    trigger: 'options-1',  
+    message: 'My job as Bot-6960EC is to accept the text-input for processing.',
+    trigger: 'input-portal-1',  
   },
   {
-    id:'options-1',
-    message: 'Input Options available : ',
-    trigger : 'options-2'
+    id:'input-portal-1',
+    message: 'Redirecting to Input Portal ...  ',
+    trigger : 'control-transfer',
   },
   {
-    id : 'options-2',
-    options: [
-      { value: 1, label: 'Raw Text', trigger: 'options-3' },
-    ],
+    id : 'control-transfer',
+    message: ' ',
+    end: true,
   },
-  {
-    id: 'options-3',
-    message: 'Input Type Selection Registered as \'Raw Text\'.',
-    trigger: 'options-4',
-  },
-  {
-    id: 'options-4',
-    message: 'Press OK to continue or ⇪ to go back to options.',
-    trigger: 'options-5',
-  },
-  {
-    id: 'options-5',
-    options: [
-      { value: 1, label: 'OK', trigger: 'input-validator' },
-      {value : 2, label: '⇪', trigger: 'options-1'},
-    ],
-  },
-  {
-    id: 'input-validator',
-    message: 'Handing over control to Azul...',
-    trigger: "control-transfer",
-  },
-  {
-    id: 'control-transfer',
-    message: " ",
-    end: true
-  }
 ]
-    
-class ControlCoral extends React.Component {
+
+class ControlAzul extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -91,7 +64,7 @@ class ControlCoral extends React.Component {
   }
   renderRedirect = () => {
     if (this.state.redirect) {
-      return <Redirect to='/' />
+      return <Redirect to="/takeinput/portal" />
     }
   }
     render() {
@@ -103,7 +76,7 @@ class ControlCoral extends React.Component {
                   botDelay = '1500'
                   customDelay = '1600'
                   enableSmoothScroll = 'true'
-                  headerTitle="Server - Coral"
+                  headerTitle="Server - Azul"
                   speechSynthesis = {{ enable: true, lang: 'en' }}
                   steps = {steps}
                 />
@@ -112,8 +85,6 @@ class ControlCoral extends React.Component {
             </div>
         )
     }
-    
-    
 }
 
-export default ControlCoral;
+export default ControlAzul;

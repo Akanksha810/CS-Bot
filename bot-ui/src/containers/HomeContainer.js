@@ -2,12 +2,14 @@ import React from 'react';
 import Footer from "../components/Footer";
 import ControlIris from "../components/bots/ControlIris";
 import ControlCoral from '../components/bots/ControlCoral';
+import ControlAzul from '../components/bots/ControlAzul';
 import {
   BrowserRouter as Router,
   Route,
   Link,
   Switch
 } from 'react-router-dom';
+import InputPortal from '../components/InputPortal';
 
 
 class HomeContainer extends React.Component {
@@ -32,6 +34,8 @@ class HomeContainer extends React.Component {
                 <Route exact path='/' component={ControlIris}></Route>
                 <Route exact path='/about' component={ControlIris}></Route>
                 <Route exact path='/typeinput' component={ControlCoral}></Route>
+                <Route exact path="/takeinput" component={ControlAzul}/>
+                <Route exact path= "/takeinput/portal" component={InputPortal}/>
               </Switch>
 
             </div>
