@@ -1,15 +1,19 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import {fun} from './Helper';
 
+const BASE_URL ="http://localhost:5010/"
 class InputPortal extends React.Component {
     constructor(props) {
         super();
         this.state = {
             payloadBox : '',
+            
         };
         this.handleChange = this.handleChange.bind(this)
     }
 
+    
     handleChange(event) {
         this.setState({
           [event.target.name]:event.target.value
