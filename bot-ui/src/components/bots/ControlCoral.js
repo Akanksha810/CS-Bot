@@ -20,6 +20,7 @@ const steps = [
     id: 'into-message-1',
     message : 'Control Transfer Successful ',
     trigger: 'intro-message-2',
+    delay: 10000,
   },
   {
     id: 'intro-message-2',

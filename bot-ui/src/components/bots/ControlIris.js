@@ -24,13 +24,15 @@ class ControlIris extends React.Component {
           <ChatBot
             handleEnd={this.setRedirect}
             customDelay = '1600'
+            botDelay = '1800'
             headerTitle="Server: Iris"
-            speechSynthesis = {{ enable: true, lang: 'en' }}
+            speechSynthesis = {{ enable: true, lang: 'en'}}
             steps = {[
               {
                 id: 'intro-message-1',
                 message : 'Hello! I am CS-Bot-6E48AA CodeName Iris!',
                 trigger: 'intro-message-2',
+                delay : 100,
               },  
               {
                 id: 'intro-message-2',
@@ -40,6 +42,7 @@ class ControlIris extends React.Component {
                 id: 'intro-message-2',
                 message: 'May I know your name please ?',
                 trigger: 'username-entry',
+                delay: 4500,
               },
               {
                 id: 'username-entry',
@@ -57,26 +60,31 @@ class ControlIris extends React.Component {
                 id: 'disclaimer-instruction',
                 trigger:'disclaimer-1',
                 message: "Please read the disclaimer given below to proceed.",
+                delay: 3000,
               },
               {
                 id: 'disclaimer-1',
                 message: "This is to inform you that this SOFTWARE is in alpha phase and is made solely for educational purposes. Please don't try to tamper or induce m-code in any manner.",
                 trigger: 'disclaimer-2',
+                delay: 3700,
               },
               {
                 id: 'disclaimer-2',
                 trigger:'disclaimer-3',
                 message: "Hope you enjoy this software.",
+                delay: 10750,
               },
               {
                 id: 'disclaimer-3',
                 trigger:'disclaimer-options-1',
                 message: "Best Regards, Devs.",
+
               },
               {
                 id: 'disclaimer-options-1',
                 trigger: 'disclaimer-options-2',
                 message: 'Do you agree to proceed ?',
+                delay: 3400,
               },
               {
                 id: 'disclaimer-options-2',
