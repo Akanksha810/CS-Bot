@@ -41,15 +41,16 @@ class InputPortal extends React.Component {
     }
 
     onSubmit = (event) => {
-        event.preventDefault()
-        const payloadBox = {
-            payload: this.state.payloadBox
-        }
+        // event.preventDefault()
+        // const payloadBox = {
+        //     payload: this.state.payloadBox
+        // }
         // console.log(payloadBox.payload)
-        this.sendRequest(payloadBox.payload)
+        // this.sendRequest(payloadBox.payload)
         // this.setState({
         //     payloadBox: ''
         // })
+        
     }
      
     render() {

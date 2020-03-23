@@ -10,6 +10,9 @@ import {
   Switch
 } from 'react-router-dom';
 import InputPortal from '../components/InputPortal';
+import ControlRoux from '../components/bots/ControlRoux';
+import ResultPortal from '../components/ResultPortal';
+import SpiderViewPortal from '../components/SpiderViewPortal';
 
 
 class HomeContainer extends React.Component {
@@ -34,8 +37,13 @@ class HomeContainer extends React.Component {
                 <Route exact path='/' component={ControlIris}></Route>
                 <Route exact path='/about' component={ControlIris}></Route>
                 <Route exact path='/typeinput' component={ControlCoral}></Route>
+                
                 <Route exact path="/takeinput" component={ControlAzul}/>
-                <Route exact path= "/takeinput/portal" component={InputPortal}/>
+                <Route exact path="/takeinput/portal" component={InputPortal}/>
+                
+                <Route exact path="/results" component={ControlRoux}/>
+                <Route exact path="/results/portal" component={ResultPortal}/>
+                <Route exact path="/results/portal/spiderView" component = {SpiderViewPortal}/>
               </Switch>
 
             </div>

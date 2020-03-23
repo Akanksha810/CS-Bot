@@ -35,5 +35,6 @@ code {
 
 @import 'styles/containers/home-container.css';
 
+@import 'styles/components/resultportal.css';
 @import 'styles/components/inputportal.css';
 @import 'styles/components/footer.css';

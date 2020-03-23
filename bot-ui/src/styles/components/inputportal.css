@@ -36,4 +36,6 @@
   }
 .button-text {
     font-size: larger;
+    padding-left: 10px;
+    padding-right: 10px;
 }
