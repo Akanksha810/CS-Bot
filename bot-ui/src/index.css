@@ -31,9 +31,14 @@ code {
   font-family: 'autodestructbb_reg';
   src: local('autodestructbb_reg'), url(./styles/fonts/autodestructbb_reg.ttf) format('truetype');
 }
+@font-face {
+  font-family: 'florencesans_sc;';
+  src: local('florencesans_sc'), url(./styles/fonts/florencesans_sc/Florsn17.ttf) format('truetype');
+}
 
 
 @import 'styles/containers/home-container.css';
 
+@import 'styles/components/resultportal.css';
 @import 'styles/components/inputportal.css';
 @import 'styles/components/footer.css';

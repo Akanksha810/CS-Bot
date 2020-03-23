@@ -3,22 +3,21 @@ import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
 import{ Redirect } from 'react-router-dom';
 import InputPortal from '../InputPortal';
-import { useLocation } from 'react-router-dom';
-
+// #FF198C
 
 const theme = {
   background: '#f5f8fb',
   fontFamily: 'monospace',
-  headerBgColor: '#6960EC',
+  headerBgColor: '#FF198C',
   headerFontColor: '#fff',
   headerFontSize: '15px',
-  botBubbleColor: '#6960EC',
+  botBubbleColor: '#FF198C',
   botFontColor: '#fff',
   userBubbleColor: '#fff',
   userFontColor: '#4a4a4a',
 };
 
-const steps_entry = [
+const steps = [
   {
     id: 'intro-message-1',
     message : 'Control Transfer Successful ',
@@ -31,18 +30,19 @@ const steps_entry = [
   },
   {
     id: 'intro-message-3',
-    message: 'Hello! I am CS-Bot-6960EC CodeName Azul!',
+    message: 'Hello! I am CS-Bot-FF198C CodeName Roux!',
     trigger: 'intro-message-4',
   },
   {
     id : 'intro-message-4',
-    message: 'My job as Bot-6960EC is to accept the text-input for processing.',
+    message: 'My job as Bot-FF198C is to display the results regarding your target texts and corresponding visualization.',
     trigger: 'input-portal-1',  
   },
   {
-    id:'input-portal-1',
+    id:'intro-message-5',
     message: 'Redirecting to Input Portal ...  ',
-    trigger : 'control-transfer',
+    // trigger : 'control-transfer',
+    end: true,
   },
   {
     id : 'control-transfer',
@@ -51,31 +51,7 @@ const steps_entry = [
   },
 ]
 
-const steps_exit = [
-  {
-    id: 'intro-message-1',
-    message : 'Input Reception Successful ',
-    trigger: 'intro-message-2',
-  },
-  {
-    id: 'intro-message-2',
-    message: 'Sending Target Text to Server for processing...',
-    trigger: 'intro-message-3',
-  },
-  {
-    id: 'intro-message-3',
-    message: 'Now, Transferring Control to Roux ...',
-    trigger: 'control-transfer',
-  },
-  {
-    id : 'control-transfer',
-    message: ' ',
-    end: true,
-  },
-]
-
-
-class ControlAzul extends React.Component {
+class ControlRoux extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -88,16 +64,12 @@ class ControlAzul extends React.Component {
     })
   }
   renderRedirect = () => {
-    if (this.state.redirect && this.props.interface == "init") {
+    if (this.state.redirect) {
       return <Redirect to="/takeinput/portal" />
-    }
-    if (this.state.redirect && this.props.interface == "re") {
-      return <Redirect to="/results"/>
     }
   }
     render() {
-      console.log(this.props.interface);
-    return (
+        return (
             <div>
               <ThemeProvider theme = {theme}>
                 <ChatBot
@@ -105,15 +77,15 @@ class ControlAzul extends React.Component {
                   botDelay = '1500'
                   customDelay = '1600'
                   enableSmoothScroll = 'true'
-                  headerTitle="Server - Azul"
+                  headerTitle="Server - Roux"
                   speechSynthesis = {{ enable: true, lang: 'en' }}
-                  steps = {this.state.interface ? steps_entry : steps_exit}
+                  steps = {steps}
                 />
               </ThemeProvider>
-              {this.renderRedirect()}
+              {/* {this.renderRedirect()} */}
             </div>
         )
     }
 }
 
-export default ControlAzul;
+export default ControlRoux;
