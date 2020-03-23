@@ -1,4 +1,5 @@
 import React from 'react';
+import SpiderViewPortal from './SpiderViewPortal';
 
 class ResultPortal extends React.Component {
   constructor(props) {
@@ -20,31 +21,37 @@ class ResultPortal extends React.Component {
   
         return (
           <div className = "result-portal">
-            <div className = "textarea-title">
-              <span className = "text-title">
-                Processed Summary 
-              </span>
-            </div>
-            <div className = "textarea-box">
-              <textarea 
-                rows="16" 
-                cols="130"
-              >
-                {placeholder_text}
-              </textarea>
-            </div>
-            <div className = "button-save">
-            <div className = "category-area">
-              <div className = "category-title">
-                Category : 
-                  <span>
-                    Entertainment
+            <div className = "summarize-div">
+                <div className = "textarea-title">
+                  <span className = "text-title">
+                    PROCESSED SUMMARY 
                   </span>
                 </div>
-              </div>
-            
-              <button>Save Result to File !</button>
-              <button>View SpiderGraph </button>
+                <div className = "textarea-box">
+                  <textarea 
+                    rows="16" 
+                    cols="120"
+                  >
+                    {placeholder_text}
+                  </textarea>
+                </div>
+                <div className = "button-div">
+                  <div className = "button-left">
+                    <button className = "button-save">Click for Another Processing !</button>
+                  </div>
+                  <div className = "button-right">
+                    <button className = "button-save">Save Result to File !</button>
+                  </div>
+                </div>
+                <div className = "category-area">
+                  <div className = "category-result">
+                    <div className = "category-title">Category : </div>
+                    <div className = "category">Entertainment</div>
+                  </div>
+                    <div className="spider-graph" >
+                      <SpiderViewPortal/>
+                    </div>
+                </div>            
             </div>
           </div>
 

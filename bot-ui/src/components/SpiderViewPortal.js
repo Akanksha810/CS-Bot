@@ -43,7 +43,7 @@ class SpiderViewPortal extends React.Component {
       captionProps: () => ({
         className: 'captions',
         textAnchor: 'middle',
-        fontSize: 17,
+        fontSize: 14,
         fontFamily: 'sans-serif',
       }),
       
@@ -55,12 +55,10 @@ class SpiderViewPortal extends React.Component {
         <RadarChart
             captions={captions}
             data={data}
-            size={525}
+            size={500}
             options = {defaultOptions}
           />
-          <div>
-          <button>Click to Go Back !</button>  
-          </div>         
+             
         </div>
     );
   }

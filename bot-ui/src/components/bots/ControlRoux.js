@@ -39,7 +39,7 @@ const steps = [
     trigger: 'input-portal-1',  
   },
   {
-    id:'input-portal-1',
+    id:'intro-message-5',
     message: 'Redirecting to Input Portal ...  ',
     // trigger : 'control-transfer',
     end: true,

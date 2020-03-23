@@ -3,6 +3,7 @@ import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
 import{ Redirect } from 'react-router-dom';
 import InputPortal from '../InputPortal';
+import { useLocation } from 'react-router-dom';
 
 
 const theme = {
@@ -17,7 +18,7 @@ const theme = {
   userFontColor: '#4a4a4a',
 };
 
-const steps = [
+const steps_entry = [
   {
     id: 'intro-message-1',
     message : 'Control Transfer Successful ',
@@ -50,6 +51,30 @@ const steps = [
   },
 ]
 
+const steps_exit = [
+  {
+    id: 'intro-message-1',
+    message : 'Input Reception Successful ',
+    trigger: 'intro-message-2',
+  },
+  {
+    id: 'intro-message-2',
+    message: 'Sending Target Text to Server for processing...',
+    trigger: 'intro-message-3',
+  },
+  {
+    id: 'intro-message-3',
+    message: 'Now, Transferring Control to Roux ...',
+    trigger: 'control-transfer',
+  },
+  {
+    id : 'control-transfer',
+    message: ' ',
+    end: true,
+  },
+]
+
+
 class ControlAzul extends React.Component {
   constructor(props) {
     super(props)
@@ -63,12 +88,16 @@ class ControlAzul extends React.Component {
     })
   }
   renderRedirect = () => {
-    if (this.state.redirect) {
+    if (this.state.redirect && this.props.interface == "init") {
       return <Redirect to="/takeinput/portal" />
+    }
+    if (this.state.redirect && this.props.interface == "re") {
+      return <Redirect to="/results"/>
     }
   }
     render() {
-        return (
+      console.log(this.props.interface);
+    return (
             <div>
               <ThemeProvider theme = {theme}>
                 <ChatBot
@@ -78,7 +107,7 @@ class ControlAzul extends React.Component {
                   enableSmoothScroll = 'true'
                   headerTitle="Server - Azul"
                   speechSynthesis = {{ enable: true, lang: 'en' }}
-                  steps = {steps}
+                  steps = {this.state.interface ? steps_entry : steps_exit}
                 />
               </ThemeProvider>
               {this.renderRedirect()}

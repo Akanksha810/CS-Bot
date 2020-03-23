@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {fun} from './Helper';
+import{ Redirect } from 'react-router-dom';
+import history from './history';
+
 
 const BASE_URL ="http://localhost:5010/"
 class InputPortal extends React.Component {
@@ -8,11 +11,24 @@ class InputPortal extends React.Component {
         super();
         this.state = {
             payloadBox : '',
+            redirect : null,
             
         };
         this.handleChange = this.handleChange.bind(this)
     }
 
+    setRedirect = () => {
+        this.setState({
+          redirect: true
+        })
+      }
+    renderRedirect = () => {
+        this.setRedirect()
+        if (this.state.redirect) {
+            return <Redirect push to="/takeinput/re" />
+        }
+    }
+    
     
     handleChange(event) {
         this.setState({
@@ -22,8 +38,6 @@ class InputPortal extends React.Component {
    
     sendRequest(payload) {
         console.log("Request length " + payload.length)
-        // var res = await axios.post('http://localhost:5010/summarize',payload)
-        // console.log(res)
         var res = fetch('http://localhost:5010/summarize', {
             method: 'POST',
             body: payload,
@@ -41,6 +55,7 @@ class InputPortal extends React.Component {
     }
 
     onSubmit = (event) => {
+        this.renderRedirect()
         // event.preventDefault()
         // const payloadBox = {
         //     payload: this.state.payloadBox
@@ -54,6 +69,8 @@ class InputPortal extends React.Component {
     }
      
     render() {
+        
+
         return (
             <div class="text-area">
                 <label>
@@ -62,6 +79,7 @@ class InputPortal extends React.Component {
                 
                 <div className = "textarea-item">
                     <textarea 
+                        className="textarea-cl"
                         rows="16" 
                         name="payloadBox"
                         value = {this.state.payloadBox}
@@ -71,23 +89,19 @@ class InputPortal extends React.Component {
                     </textarea>
                 </div>
                 <div>
-                    <button className = "button">
-                    <span className="button-text" onClick={(e) => this.onSubmit(e)}>Summarize &#10148;</span>
-                    {/* <span className="button-text" onClick={this.sendRequest}>Click to Proceed &#10148;</span> */}
-                    </button>
-                     
-                    <button className = "button">
-                    <span className="button-text" onClick={(e) => this.onSubmit(e)}>Classify &#10148;</span>
-                    {/* <span className="button-text" onClick={this.sendRequest}>Click to Proceed &#10148;</span> */}
+                    <button className = "button" onClick={() => history.push('/takeinput/init')}>
+                    {/* <span className="button-text" onClick={(e) => this.onSubmit(e)}>Summarize 'n' Classify&#10148;</span>    */}
+                    <span className="button-text" >Summarize 'n' Classify&#10148;</span>
                     </button>
                 </div>
-           
+                
             </div>
-
-
+            
         );
 
     }
 }
+
+
 
 export default InputPortal;
