@@ -15,6 +15,7 @@ import ResultPortal from '../components/ResultPortal';
 import SpiderViewPortal from '../components/SpiderViewPortal';
 import Header from '../components/Header';
 import history from '../components/history';
+import EndPage from '../components/EndPage';
 
 // {() => <PropsPage title={`Props through component`} />}
 class HomeContainer extends React.Component {
@@ -36,6 +37,8 @@ class HomeContainer extends React.Component {
                 <Route exact path="/results" component={ControlRoux}/>
                 <Route exact path="/results/portal" component={ResultPortal}/>
                 <Route exact path="/results/portal/spiderView" component = {SpiderViewPortal}/>
+                
+                <Route exact path="/end" component = {EndPage}/>
               </Switch>
 
             </div>

@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import axios from 'axios';
 import {fun} from './Helper';
 import{ Redirect } from 'react-router-dom';
 import history from './history';
 
-
+// http://localhost:3000/takeinput/portal
 const BASE_URL ="http://localhost:5010/"
 class InputPortal extends React.Component {
     constructor(props) {
@@ -21,11 +20,11 @@ class InputPortal extends React.Component {
         this.setState({
           redirect: true
         })
+        console.log(this.state.redirect)
       }
     renderRedirect = () => {
-        this.setRedirect()
         if (this.state.redirect) {
-            return <Redirect push to="/takeinput/re" />
+            return <Redirect to="/takeinput/re" />
         }
     }
     
@@ -51,7 +50,9 @@ class InputPortal extends React.Component {
     }
 
     fun(data) {
-        console.log(data)
+        // console.log(dat
+  
+
     }
 
     onSubmit = (event) => {
@@ -89,12 +90,12 @@ class InputPortal extends React.Component {
                     </textarea>
                 </div>
                 <div>
-                    <button className = "button" onClick={() => history.push('/takeinput/init')}>
+                    <button className = "button" onClick={() => history.push(`/takeinput/init`)}>
                     {/* <span className="button-text" onClick={(e) => this.onSubmit(e)}>Summarize 'n' Classify&#10148;</span>    */}
                     <span className="button-text" >Summarize 'n' Classify&#10148;</span>
                     </button>
                 </div>
-                
+                {this.renderRedirect}
             </div>
             
         );
