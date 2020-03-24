@@ -15,10 +15,17 @@ class InputPortal extends React.Component {
         };
         this.handleChange = this.handleChange.bind(this)
     }
-    handleSubmit = (user) => {
-        saveUser(user).then(()=> this.setState(()=> ({
-            redirect:true
-        })))
+
+    setRedirect = () => {
+        this.setState({
+          redirect: true
+        })
+        console.log(this.state.redirect)
+      }
+    renderRedirect = () => {
+        if (this.state.redirect) {
+            return <Redirect to="/takeinput/re" />
+        }
     }
     sendRequest(payload) {
         console.log("Request length " + payload.length)
@@ -77,7 +84,7 @@ class InputPortal extends React.Component {
                     </textarea>
                 </div> */}
                 <div>
-                    <button className = "button" onClick={this.handleSubmit}>
+                    <button className = "button" onClick={() => history.push(`/takeinput/init`)}>
                     {/* <span className="button-text" onClick={(e) => this.onSubmit(e)}>Summarize 'n' Classify&#10148;</span>    */}
                     <span className="button-text" >Summarize 'n' Classify&#10148;</span>
                     </button>
