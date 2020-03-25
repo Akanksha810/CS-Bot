@@ -104,7 +104,7 @@ class ControlCoral extends React.Component {
                   customDelay = '1600'
                   enableSmoothScroll = 'true'
                   headerTitle="Server - Coral"
-                  speechSynthesis = {{ enable: true, lang: 'en' }}
+                  speechSynthesis = {{ enable: false, lang: 'en' }}
                   steps = {steps}
                 />
               </ThemeProvider>

@@ -10,31 +10,16 @@ class InputPortal extends React.Component {
         super();
         this.state = {
             payloadBox : '',
-            redirect : null,
+            redirect : false,
             
         };
         this.handleChange = this.handleChange.bind(this)
     }
-
-    setRedirect = () => {
-        this.setState({
-          redirect: true
-        })
-        console.log(this.state.redirect)
-      }
-    renderRedirect = () => {
-        if (this.state.redirect) {
-            return <Redirect to="/takeinput/re" />
-        }
+    handleSubmit = (user) => {
+        saveUser(user).then(()=> this.setState(()=> ({
+            redirect:true
+        })))
     }
-    
-    
-    handleChange(event) {
-        this.setState({
-          [event.target.name]:event.target.value
-        });
-      }
-   
     sendRequest(payload) {
         console.log("Request length " + payload.length)
         var res = fetch('http://localhost:5010/summarize', {
@@ -70,7 +55,9 @@ class InputPortal extends React.Component {
     }
      
     render() {
-        
+        if(this.state.redirect === true) {
+            return <Redirect to='/endpage'/>
+        }
 
         return (
             <div class="text-area">
@@ -78,7 +65,7 @@ class InputPortal extends React.Component {
                     <div className="textarea-label">Enter your Text here  &#11167;</div>
                 </label>
                 
-                <div className = "textarea-item">
+                {/* <div className = "textarea-item">
                     <textarea 
                         className="textarea-cl"
                         rows="16" 
@@ -88,9 +75,9 @@ class InputPortal extends React.Component {
                         onChange={event => this.handleChange(event)}
                         cols="100">
                     </textarea>
-                </div>
+                </div> */}
                 <div>
-                    <button className = "button" onClick={() => history.push(`/takeinput/init`)}>
+                    <button className = "button" onClick={this.handleSubmit}>
                     {/* <span className="button-text" onClick={(e) => this.onSubmit(e)}>Summarize 'n' Classify&#10148;</span>    */}
                     <span className="button-text" >Summarize 'n' Classify&#10148;</span>
                     </button>
