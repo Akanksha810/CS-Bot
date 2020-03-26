@@ -4,7 +4,6 @@ import{ Redirect, Link } from 'react-router-dom';
 import Footer from './Footer';
 import Header from './Header';
 
-// http://localhost:3000/takeinput/portal
 const BASE_URL ="http://localhost:5010/"
 class InputPortal extends React.Component {
     constructor(props) {
@@ -15,11 +14,6 @@ class InputPortal extends React.Component {
             
         };
         
-    }
-    handleSubmit = (user) => {
-        // saveUser(user).then(()=> this.setState(()=> ({
-        //     redirect:true
-        // })))
     }
     sendRequest(payload) {
         console.log("Request length " + payload.length)
@@ -33,12 +27,6 @@ class InputPortal extends React.Component {
             return res;
         }).catch(err=> err);
         console.log(res)
-    }
-
-    fun(data) {
-        // console.log(dat
-  
-
     }
 
     onSubmit = (event) => {

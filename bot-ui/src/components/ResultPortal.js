@@ -43,15 +43,15 @@ class ResultPortal extends React.Component {
                   <div className = "button-div">
                     <Link to="/takeinput/init">
                     <div className = "button-left">
-                      <button className = "button-save">Click for Another Processing !</button>
+                      <button className = "button-save">Click for Another Processing</button>
                     </div>
                     </Link>
                     <div className = "button-right">
-                      <button className = "button-save">Save Result to File !</button>
+                      <button className = "button-save">Save Result to File</button>
                     </div>
                     <Link to="/end">
-                    <div className = "button-right">
-                      <button className = "button-save">Exit !</button>
+                    <div className = "button-left">
+                      <button className = "button-save">Exit</button>
                     </div>
                     </Link>
                   </div>

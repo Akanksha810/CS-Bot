@@ -1,7 +1,5 @@
 import React from 'react';
 import RadarChart from 'react-svg-radar-chart';
-// import 'react-svg-radar-chart/build/css/index.css';
-
 class SpiderViewPortal extends React.Component {
   render() {
 
