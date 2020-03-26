@@ -2,16 +2,10 @@ import React from 'react';
 import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
 import{ Redirect } from 'react-router-dom';
-<<<<<<< Updated upstream
+
 import Header from '../Header';
 import Footer from '../Footer';
-=======
-<<<<<<< HEAD
-=======
-import Header from '../Header';
-import Footer from '../Footer';
->>>>>>> 5fdfc8ab39ef073458e20aeb66585d6fe7a2fc5d
->>>>>>> Stashed changes
+
 
 class Exit extends React.Component {
   render() {
