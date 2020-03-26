@@ -4,7 +4,8 @@ import { ThemeProvider } from 'styled-components';
 import{ Redirect } from 'react-router-dom';
 import InputPortal from '../InputPortal';
 import { useLocation } from 'react-router-dom';
-
+import Header from '../Header';
+import Footer from '../Footer';
 
 const theme = {
   background: '#f5f8fb',
@@ -79,39 +80,40 @@ class ControlAzul extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      redirect : false
+      redirect : ""
     }
   }
   setRedirect = () => {
     this.setState({
-      redirect: true
+      redirect: window.location.pathname !== "/takeinput/re" ? "/takeinput/portal" : "/results"
     })
   }
   renderRedirect = () => {
-    if (this.state.redirect && this.props.interface == "init") {
-      return <Redirect to="/takeinput/portal" />
-    }
-    if (this.state.redirect && this.props.interface == "re") {
-      return <Redirect to="/results"/>
+    if (this.state.redirect != "") {
+      return <Redirect to={this.state.redirect} />
     }
   }
     render() {
-      console.log(this.props.interface);
     return (
-            <div>
-              <ThemeProvider theme = {theme}>
-                <ChatBot
-                  handleEnd={this.setRedirect}
-                  botDelay = '1500'
-                  customDelay = '1600'
-                  enableSmoothScroll = 'true'
-                  headerTitle="Server - Azul"
-                  speechSynthesis = {{ enable: true, lang: 'en' }}
-                  steps = {this.state.interface ? steps_entry : steps_exit}
-                />
-              </ThemeProvider>
-              {this.renderRedirect()}
-            </div>
+      <div className= "home-container">
+        <Header/>
+          <div className = "main-bot">
+            <ThemeProvider theme = {theme}>
+              <ChatBot
+                handleEnd={this.setRedirect}
+                botDelay = '1500'
+                customDelay = '1600'
+                enableSmoothScroll = 'true'
+                headerTitle="Server - Azul"
+                speechSynthesis = {{ enable: true, lang: 'en' }}
+                // steps = 
+                steps = {window.location.pathname !== "/takeinput/re" ? steps_entry : steps_exit}
+              />
+            </ThemeProvider>
+          </div>
+          <Footer/>
+          {this.renderRedirect()}
+        </div>
         )
     }
 }

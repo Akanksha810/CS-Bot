@@ -10,7 +10,7 @@ class Footer extends React.Component {
         return (
           <footer className = "main-footer">
             <div className = "footer-text">
-              {this.props.text}
+              ©	This is a joint project by Aditya and Akanksha
             </div>
          </footer>
 

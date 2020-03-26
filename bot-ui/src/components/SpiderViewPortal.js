@@ -55,7 +55,7 @@ class SpiderViewPortal extends React.Component {
         <RadarChart
             captions={captions}
             data={data}
-            size={500}
+            size={450}
             options = {defaultOptions}
           />
              

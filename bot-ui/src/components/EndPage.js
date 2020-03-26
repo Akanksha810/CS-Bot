@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
+import Footer from './Footer';
+import Header from './Header';
 
 class EndPage extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-
-        }
+        
     }
     render() {
         return (
-            <div>
+            <div className= "home-container">
+                <Header/>
                <div className= "title-text"><h1>We had fun guys, Did you ??</h1> </div>
                <div class="subtitile-text">
                    
@@ -17,6 +18,7 @@ class EndPage extends React.Component {
                         <a href="shivi.s98@gmail.com"><h6></h6></a>
                        
                 </div>
+                <Footer/>
             </div>
         )
     }

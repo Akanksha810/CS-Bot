@@ -2,6 +2,8 @@ import React from 'react';
 import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
 import{ Redirect } from 'react-router-dom';
+import Header from '../Header';
+import Footer from '../Footer';
 
 class Exit extends React.Component {
   render() {
@@ -110,6 +112,7 @@ const steps = [
     id: 'disagreement-path-2',
     options : [
       { value: 1, label: 'RE-RUN', trigger: 'intro-message-1' },
+      { value: 2, label: 'EXIT', trigger: 'end-path' },
     ]
   },
   {
@@ -146,17 +149,18 @@ class ControlCoral extends React.Component {
   }
     render() {
         return (
-            <div>
-              
+            <div className= "home-container">
+              <Header/>
+              <div className="main-bot">
                 <ChatBot
                   handleEnd={this.setRedirect}
-                  // botDelay = '1500'
-                  // customDelay = '1600'
                   enableSmoothScroll = 'true'
                   headerTitle="Server - Iris"
                   speechSynthesis = {{ enable: true, lang: 'en' }}
                   steps = {steps}
                 />
+              </div>
+              <Footer/>
               {this.renderRedirect()}
             </div>
         )

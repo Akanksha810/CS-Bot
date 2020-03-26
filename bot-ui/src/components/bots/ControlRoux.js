@@ -3,6 +3,8 @@ import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
 import{ Redirect } from 'react-router-dom';
 import InputPortal from '../InputPortal';
+import Header from '../Header';
+import Footer from '../Footer';
 // #FF198C
 
 const theme = {
@@ -36,7 +38,7 @@ const steps = [
   {
     id : 'intro-message-4',
     message: 'My job as Bot-FF198C is to display the results regarding your target texts and corresponding visualization.',
-    trigger: 'input-portal-1',  
+    trigger: 'intro-message-5',  
   },
   {
     id:'intro-message-5',
@@ -65,12 +67,14 @@ class ControlRoux extends React.Component {
   }
   renderRedirect = () => {
     if (this.state.redirect) {
-      return <Redirect to="/takeinput/portal" />
+      return <Redirect to="/results/portal" />
     }
   }
     render() {
         return (
-            <div>
+          <div className= "home-container">
+            <Header/>
+            <div className = "main-bot">
               <ThemeProvider theme = {theme}>
                 <ChatBot
                   handleEnd={this.setRedirect}
@@ -82,7 +86,9 @@ class ControlRoux extends React.Component {
                   steps = {steps}
                 />
               </ThemeProvider>
-              {/* {this.renderRedirect()} */}
+              </div>
+              <Footer/>
+              {this.renderRedirect()}
             </div>
         )
     }
