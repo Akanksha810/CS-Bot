@@ -3,6 +3,10 @@ import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
 import{ Redirect } from 'react-router-dom';
 
+import Header from '../Header';
+import Footer from '../Footer';
+
+
 class Exit extends React.Component {
   render() {
     return (
@@ -53,7 +57,7 @@ const steps = [
   },
   {
     id: 'disclaimer-1',
-    message: "This is to inform you that this SOFTWARE is in alpha phase and is made solely for educational purposes. Please don't try to tamper or induce m-code in any manner.",
+    message: "This is to inform you that this SOFTWARE is in alpha phase and is made solely for educational purposes. Please don't try to tamper or induce malicious-code in any manner.",
     trigger: 'disclaimer-2',
     delay: 3700,
   },
@@ -110,6 +114,7 @@ const steps = [
     id: 'disagreement-path-2',
     options : [
       { value: 1, label: 'RE-RUN', trigger: 'intro-message-1' },
+      { value: 2, label: 'EXIT', trigger: 'end-path' },
     ]
   },
   {
@@ -127,7 +132,7 @@ const steps = [
   
 ]
     
-class ControlCoral extends React.Component {
+class ControlIris extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -146,17 +151,18 @@ class ControlCoral extends React.Component {
   }
     render() {
         return (
-            <div>
-              
+            <div className= "home-container">
+              <Header/>
+              <div className="main-bot">
                 <ChatBot
                   handleEnd={this.setRedirect}
-                  // botDelay = '1500'
-                  // customDelay = '1600'
                   enableSmoothScroll = 'true'
                   headerTitle="Server - Iris"
                   speechSynthesis = {{ enable: true, lang: 'en' }}
                   steps = {steps}
                 />
+              </div>
+              <Footer/>
               {this.renderRedirect()}
             </div>
         )
@@ -165,4 +171,4 @@ class ControlCoral extends React.Component {
     
 }
 
-export default ControlCoral;
+export default ControlIris;

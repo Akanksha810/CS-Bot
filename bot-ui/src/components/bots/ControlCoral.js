@@ -2,6 +2,8 @@ import React from 'react';
 import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
 import{ Redirect } from 'react-router-dom';
+import Header from '../Header';
+import Footer from '../Footer';
 
 const theme = {
   background: '#f5f8fb',
@@ -20,43 +22,50 @@ const steps = [
     id: 'into-message-1',
     message : 'Control Transfer Successful ',
     trigger: 'intro-message-2',
-    delay: 10000,
+    // delay: 7500,
   },
   {
     id: 'intro-message-2',
     message: 'Starting Bot Interface..',
     trigger: 'intro-message-3',
+    delay:3500,
   },
   {
     id: 'intro-message-3',
     message: 'Hello! I am CS-Bot-FF7F50 CodeName Coral!',
     trigger: 'intro-message-4',
+    delay:4500,
   },
   {
     id : 'intro-message-4',
     message: 'My job as Bot-FF7F50 is to make you aware of options of varying inputs which could be put here.',
     trigger: 'options-1',  
+    delay:5500,
   },
   {
     id:'options-1',
     message: 'Input Options available : ',
-    trigger : 'options-2'
+    trigger : 'options-2',
+    delay: 7500,
   },
   {
     id : 'options-2',
     options: [
       { value: 1, label: 'Raw Text', trigger: 'options-3' },
     ],
+    delay:3500,
   },
   {
     id: 'options-3',
     message: 'Input Type Selection Registered as \'Raw Text\'.',
     trigger: 'options-4',
+    delay:3500,
   },
   {
     id: 'options-4',
     message: 'Press OK to continue or ⇪ to go back to options.',
     trigger: 'options-5',
+    delay:5500,
   },
   {
     id: 'options-5',
@@ -64,16 +73,19 @@ const steps = [
       { value: 1, label: 'OK', trigger: 'input-validator' },
       {value : 2, label: '⇪', trigger: 'options-1'},
     ],
+    delay:4500,
   },
   {
     id: 'input-validator',
     message: 'Handing over control to Azul...',
     trigger: "control-transfer",
+    delay:4500,
   },
   {
     id: 'control-transfer',
     message: " ",
-    end: true
+    end: true,
+    delay: 6500,
   }
 ]
     
@@ -96,18 +108,22 @@ class ControlCoral extends React.Component {
   }
     render() {
         return (
-            <div>
-              <ThemeProvider theme = {theme}>
-                <ChatBot
-                  handleEnd={this.setRedirect}
-                  botDelay = '1500'
-                  customDelay = '1600'
-                  enableSmoothScroll = 'true'
-                  headerTitle="Server - Coral"
-                  speechSynthesis = {{ enable: false, lang: 'en' }}
-                  steps = {steps}
-                />
-              </ThemeProvider>
+            <div className= "home-container">
+              <Header/>
+              <div className = "main-bot">
+                <ThemeProvider theme = {theme}>
+                  <ChatBot
+                    handleEnd={this.setRedirect}
+                    botDelay = '1500'
+                    customDelay = '1600'
+                    enableSmoothScroll = 'true'
+                    headerTitle="Server - Coral"
+                    speechSynthesis = {{ enable: true, lang: 'en' }}
+                    steps = {steps}
+                  />
+                </ThemeProvider>
+              </div>
+              <Footer/>
               {this.renderRedirect()}
             </div>
         )

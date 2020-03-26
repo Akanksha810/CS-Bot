@@ -3,7 +3,8 @@ import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
 import{ Redirect } from 'react-router-dom';
 import InputPortal from '../InputPortal';
-// #FF198C
+import Header from '../Header';
+import Footer from '../Footer';
 
 const theme = {
   background: '#f5f8fb',
@@ -22,32 +23,49 @@ const steps = [
     id: 'intro-message-1',
     message : 'Control Transfer Successful ',
     trigger: 'intro-message-2',
+    delay: 2500,
   },
   {
     id: 'intro-message-2',
     message: 'Starting Bot Interface..',
     trigger: 'intro-message-3',
+    delay: 3500,
   },
   {
     id: 'intro-message-3',
     message: 'Hello! I am CS-Bot-FF198C CodeName Roux!',
     trigger: 'intro-message-4',
+    delay: 3500,
   },
   {
     id : 'intro-message-4',
     message: 'My job as Bot-FF198C is to display the results regarding your target texts and corresponding visualization.',
-    trigger: 'input-portal-1',  
+    trigger: 'op-1',  
+    delay: 6500,
   },
   {
-    id:'intro-message-5',
-    message: 'Redirecting to Input Portal ...  ',
-    // trigger : 'control-transfer',
-    end: true,
+    id:'op-1',
+    message: 'Retrieving output from server ... ',
+    trigger : 'op-2',
+    delay:9500,
+  },
+  {
+    id:'op-2',
+    message: 'Calculating SpiderGraph from classfication matrix..',
+    delay:3500,
+    trigger:'op-3',
+  },
+  {
+    id:'op-3',
+    message: 'Redirecting to Results Portal ...',
+    delay:5500,
+    trigger:'control-transfer',
   },
   {
     id : 'control-transfer',
     message: ' ',
     end: true,
+    delay:3400
   },
 ]
 
@@ -65,12 +83,14 @@ class ControlRoux extends React.Component {
   }
   renderRedirect = () => {
     if (this.state.redirect) {
-      return <Redirect to="/takeinput/portal" />
+      return <Redirect to="/results/portal" />
     }
   }
     render() {
         return (
-            <div>
+          <div className= "home-container">
+            <Header/>
+            <div className = "main-bot">
               <ThemeProvider theme = {theme}>
                 <ChatBot
                   handleEnd={this.setRedirect}
@@ -82,7 +102,9 @@ class ControlRoux extends React.Component {
                   steps = {steps}
                 />
               </ThemeProvider>
-              {/* {this.renderRedirect()} */}
+              </div>
+              <Footer/>
+              {this.renderRedirect()}
             </div>
         )
     }

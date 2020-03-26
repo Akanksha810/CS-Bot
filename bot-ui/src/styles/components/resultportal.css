@@ -5,10 +5,15 @@ textarea {
     font-family: 'Courier New', Courier, monospace;
 
 }
-
+.page-info{
+    height: 104px;
+    margin-top: 28px;
+    margin-bottom: 10px;
+}
 .result-portal {
     display: flex;
     margin-left: 100px;
+    margin-top: 65px;
     /* justify-content: space-between; */
     
 }
@@ -32,7 +37,7 @@ textarea {
 .category-result {
     width: 500px;
     height:auto;
-    margin-top: 185px;
+    margin-top: 150px;
 }
 .category-area {
     margin-top: 10p;

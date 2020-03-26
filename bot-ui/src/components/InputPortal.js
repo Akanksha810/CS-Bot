@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import {fun} from './Helper';
-import{ Redirect } from 'react-router-dom';
-import history from './history';
 
-// http://localhost:3000/takeinput/portal
+import{ Redirect, Link } from 'react-router-dom';
+import Footer from './Footer';
+import Header from './Header';
+
 const BASE_URL ="http://localhost:5010/"
 class InputPortal extends React.Component {
     constructor(props) {
@@ -13,12 +13,7 @@ class InputPortal extends React.Component {
             redirect : false,
             
         };
-        this.handleChange = this.handleChange.bind(this)
-    }
-    handleSubmit = (user) => {
-        saveUser(user).then(()=> this.setState(()=> ({
-            redirect:true
-        })))
+        
     }
     sendRequest(payload) {
         console.log("Request length " + payload.length)
@@ -32,12 +27,6 @@ class InputPortal extends React.Component {
             return res;
         }).catch(err=> err);
         console.log(res)
-    }
-
-    fun(data) {
-        // console.log(dat
-  
-
     }
 
     onSubmit = (event) => {
@@ -60,12 +49,14 @@ class InputPortal extends React.Component {
         }
 
         return (
+            <div className= "home-container">
+            <Header/>
             <div class="text-area">
                 <label>
                     <div className="textarea-label">Enter your Text here  &#11167;</div>
                 </label>
-                
-                {/* <div className = "textarea-item">
+                {console.log(window.location.pathname)}
+                <div className = "textarea-item">
                     <textarea 
                         className="textarea-cl"
                         rows="16" 
@@ -75,16 +66,19 @@ class InputPortal extends React.Component {
                         onChange={event => this.handleChange(event)}
                         cols="100">
                     </textarea>
-                </div> */}
+                </div>
                 <div>
+                    <Link to="/takeinput/re">
                     <button className = "button" onClick={this.handleSubmit}>
                     {/* <span className="button-text" onClick={(e) => this.onSubmit(e)}>Summarize 'n' Classify&#10148;</span>    */}
                     <span className="button-text" >Summarize 'n' Classify&#10148;</span>
                     </button>
+                    </Link>
                 </div>
                 {this.renderRedirect}
             </div>
-            
+            <Footer/>
+            </div>
         );
 
     }

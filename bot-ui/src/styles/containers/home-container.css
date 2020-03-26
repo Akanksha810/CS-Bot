@@ -4,7 +4,7 @@
 }
 .page-info {
     height: 104px;
-    margin-top: 78px;
+    margin-top: 48px;
     margin-bottom: 10px;
 }
 .page-header-title-container{
@@ -23,6 +23,7 @@
 }
 .page-subtitle {
     font-size: 30px;
+    padding-bottom: 30px;
 }
 .main-bot{
     margin-top: 50px;

@@ -1,5 +1,8 @@
 import React from 'react';
 import SpiderViewPortal from './SpiderViewPortal';
+import Header from './Header';
+import Footer from './Footer';
+import {Link} from "react-router-dom";
 
 class ResultPortal extends React.Component {
   constructor(props) {
@@ -20,39 +23,50 @@ class ResultPortal extends React.Component {
      Hanesta ota kas potkaus otetaan. Sanot ota tuvan yha kohta satoi jos voi. On viime me enhan se kylla ei. Koskaan hankkii et ei te ai viisiin avaimen juossut. "
   
         return (
-          <div className = "result-portal">
-            <div className = "summarize-div">
-                <div className = "textarea-title">
-                  <span className = "text-title">
-                    PROCESSED SUMMARY 
-                  </span>
-                </div>
-                <div className = "textarea-box">
-                  <textarea 
-                    rows="16" 
-                    cols="120"
-                  >
-                    {placeholder_text}
-                  </textarea>
-                </div>
-                <div className = "button-div">
-                  <div className = "button-left">
-                    <button className = "button-save">Click for Another Processing !</button>
+          <div className= "home-container">
+            <Header/>
+            <div className = "result-portal">
+              <div className = "summarize-div">
+                  <div className = "textarea-title">
+                    <span className = "text-title">
+                      PROCESSED SUMMARY 
+                    </span>
                   </div>
-                  <div className = "button-right">
-                    <button className = "button-save">Save Result to File !</button>
+                  <div className = "textarea-box">
+                    <textarea 
+                      rows="14" 
+                      cols="120"
+                    >
+                      {placeholder_text}
+                    </textarea>
                   </div>
-                </div>
-                <div className = "category-area">
-                  <div className = "category-result">
-                    <div className = "category-title">Category : </div>
-                    <div className = "category">Entertainment</div>
-                  </div>
-                    <div className="spider-graph" >
-                      <SpiderViewPortal/>
+                  <div className = "button-div">
+                    <Link to="/takeinput/init">
+                    <div className = "button-left">
+                      <button className = "button-save">Click for Another Processing</button>
                     </div>
-                </div>            
+                    </Link>
+                    <div className = "button-right">
+                      <button className = "button-save">Save Result to File</button>
+                    </div>
+                    <Link to="/end">
+                    <div className = "button-left">
+                      <button className = "button-save">Exit</button>
+                    </div>
+                    </Link>
+                  </div>
+                  <div className = "category-area">
+                    <div className = "category-result">
+                      <div className = "category-title">Category : </div>
+                      <div className = "category">Entertainment</div>
+                    </div>
+                      <div className="spider-graph" >
+                        <SpiderViewPortal/>
+                      </div>
+                  </div>            
+              </div>
             </div>
+            <Footer/>
           </div>
 
         )
