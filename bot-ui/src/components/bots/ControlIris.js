@@ -97,7 +97,6 @@ const steps = [
       id:'handover1',
       message: 'Handing over control to Coral...',
       trigger: "control-transfer",
-      delay:8500,
   },
   {
     id: 'control-transfer',
