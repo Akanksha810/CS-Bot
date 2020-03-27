@@ -5,7 +5,8 @@ import handlers as handler
 server = Flask(__name__)
 cors = CORS(server)
 server.config['CORS_HEADERS'] = 'Content-Type'
-
+handlerObject = handler.Handlers()
+    
 
 @server.route("/")
 @cross_origin()
@@ -17,23 +18,25 @@ def slash_path_handler():
 @cross_origin()
 def summarize_util_caller():
     target_text = request.data
-    j = handler.Handlers()
-    summary_JSON = j.summarize_context(raw_text=target_text, type="string")
-    print(len(summary_JSON))
+    summary_JSON = handlerObject.summarize_context(raw_text=target_text, type="string")
     return summary_JSON
     
 
-@server.route("/info", methods=['POST'])
-@cross_origin()
-def info_handler():
-    return "api route /info created ..."
-
-
-# @server.route("/classify")
+# @server.route("/info", methods=['POST'])
 # @cross_origin()
-# def classify_handler():
-#     return "api route /classify created ..."
+# def info_handler():
+#     return "api route /info created ..."
 
+
+@server.route("/classify", methods=['POST'])
+@cross_origin()
+def classify_util_caller():
+    target_text = request.data
+    print(len(target_text))
+    response = handlerObject.classify_context(raw_text=target_text, type="string")
+    # print(tuple(response))
+    # return "response"
+    return response
 
 # @server.route("/results")
 # @cross_origin()
