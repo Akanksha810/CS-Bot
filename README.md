@@ -4,3 +4,4 @@ https://docs.google.com/document/d/1ToO1D_evbfdIN88-9JRJEftSbTMoUfKfCxxOowS5-Tw/
 
 Alpha Testing Credits:
  - Aryan [email](kraryan700@gmail.com)
+ - Chinmaya [email](chinmaya0810@gmail.com)
