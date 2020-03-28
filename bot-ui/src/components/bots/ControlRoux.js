@@ -2,7 +2,7 @@ import React from 'react';
 import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
 import{ Redirect } from 'react-router-dom';
-import InputPortal from '../InputPortal';
+
 import Header from '../Header';
 import Footer from '../Footer';
 

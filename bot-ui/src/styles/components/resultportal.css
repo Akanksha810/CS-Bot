@@ -3,7 +3,9 @@ textarea {
     border-color: #ff198c;
     border-width: 3px;
     font-family: 'Courier New', Courier, monospace;
-
+}
+p {
+    justify-content: left;
 }
 .page-info{
     height: 104px;
@@ -29,6 +31,8 @@ textarea {
 .text-title {
     font-size: xx-large;
     font-weight: 400;
+    color:  #ff198c;
+
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .category-title{
@@ -58,6 +62,7 @@ textarea {
     height: auto;
     display: flex;
     flex-direction: row;
+    margin-top: 40px;
 }
 .button-left {
     flex-direction: row-reverse;
