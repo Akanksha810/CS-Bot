@@ -18,6 +18,7 @@ def slash_path_handler():
 @cross_origin()
 def summarize_util_caller():
     target_text = request.data
+    print(len(target_text))
     summary_JSON = handlerObject.summarize_context(raw_text=target_text, type="string")
     return summary_JSON
     
@@ -27,15 +28,13 @@ def summarize_util_caller():
 # def info_handler():
 #     return "api route /info created ..."
 
-
+# OK
 @server.route("/classify", methods=['POST'])
 @cross_origin()
 def classify_util_caller():
     target_text = request.data
     print(len(target_text))
     response = handlerObject.classify_context(raw_text=target_text, type="string")
-    # print(tuple(response))
-    # return "response"
     return response
 
 # @server.route("/results")

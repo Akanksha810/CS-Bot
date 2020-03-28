@@ -34,3 +34,8 @@ class Summarizer:
     def summarize_handler(self, raw_text):
         summary_json = self.set_INPUT_TEXT(raw_text).summarize()
         return self.set_OUTPUT_TEXT(summary_json).get_OUTPUT_TEXT()
+    
+
+r = open("./input.txt","r+")
+k = Summarizer()
+print (k.summarize_handler(r))

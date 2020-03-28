@@ -21,6 +21,7 @@
     border: 2px solid #6960EC; 
     padding: 15px 32px;
     font-weight: 600;
+    font-size: 20px;
     text-align: center;
     border-radius: 4px;
     text-decoration: none;
@@ -36,7 +37,7 @@
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 22px;
     font-weight: 710;
     border-radius: 4px;
     box-shadow: 0 8px 12px 0 rgba(240,248,255 ,1 ), 0 11px 35px 0 rgba(240,248,255 ,1 );
