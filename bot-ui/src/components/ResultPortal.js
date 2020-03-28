@@ -9,28 +9,43 @@ class ResultPortal extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: []
+      summary : null,
+      matrix : null,
+      category : null,
     }
   }
-  
   
   componentDidMount() {
     fetch(BASE_URL + "summary")
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => {this.getSummary(data)})
+    fetch(BASE_URL + "classification")
+    .then(response => response.json())
+    .then(data => {this.getMatrix(data)})
     
-  
   }
+  getSummary(value) {
+    this.setState({summary:value["summary"]})
+   
+  }
+  getMatrix(value) {
+    this.setState({matrix:value,category:Object.keys(value)[0]})
+  }
+  // getMatrixCategories() {
+  //   this.setState({categories : ["Science", "Home", "Recreation", "Computers","Health", "Society", "Business", "Games", "Arts", "Sports"]}) 
+    
+  // }
 
-
-
-
+  // getMatrixValues() {
+  //   var prob_values = []
+  //   const temp = this.state.matrix
+  //   var categories = ["Science", "Home", "Recreation", "Computers","Health", "Society", "Business", "Games", "Arts", "Sports"]
+  //   categories.map((c)=> {prob_values.push(temp[c])})
+  //   this.setState({values : prob_values})
+  // }
 
   render() {
-    // console.log(this.state.summary)
-    // console.log(this.state.matrix)
     
-    // console.log(this.state)
     return (
       <div className= "home-container">
         <Header/>
@@ -42,11 +57,14 @@ class ResultPortal extends React.Component {
                 </span>
               </div>
               <div className = "textarea-box">
-                <textarea 
-                  rows="14" 
-                  cols="120"
+                <textarea
+                  rows = "10"
+                  cols = "120"
+                  name = "text"
+                  value = {this.state.summary}
+                  placeholder = "Please wait while the Roux caters this page for you ! ♡"                
                 >
-                  {}
+
                 </textarea>
               </div>
               <div className = "button-div">
@@ -67,10 +85,10 @@ class ResultPortal extends React.Component {
               <div className = "category-area">
                 <div className = "category-result">
                   <div className = "category-title">Category : </div>
-                  <div className = "category">Entertainment</div>
+                  <div className = "category">{this.state.category}</div>
                 </div>
                   <div className="spider-graph" >
-                    <SpiderViewPortal/>
+                    <SpiderViewPortal matrix={this.state.matrix}/>
                   </div>
               </div>            
           </div>

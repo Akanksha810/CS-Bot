@@ -1,7 +1,7 @@
 from os import path
 import shorten as sh
 import classifier as cl
-
+import ast
 
 class Handlers : 
     def __init__(self):
@@ -20,7 +20,13 @@ class Handlers :
         cl_o = cl.Classifier()
         return cl_o.classifier_handler(raw_text)
 
-    def display_result(self, file_path) :
+    def display_result_summary(self, file_path) :
         content = open(file_path, "r").read()
         return content
     
+    def display_result_classification(self, file_path) :
+        content = None
+        with open("../output-files/classify-output.txt", "r") as f :
+            s = f.read()
+            content = ast.literal_eval(s)
+        return content

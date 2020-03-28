@@ -1,1 +1,1 @@
-{'Science': 0.65295, 'Home': 0.226704, 'Recreation': 0.0426841, 'Computers': 0.0263481, 'Health': 0.0180885, 'Society': 0.0104031, 'Business': 0.00920265, 'Games': 0.00731702, 'Arts': 0.00581849, 'Sports': 0.000483913, 'text_coverage': 0.688406}
+{'Arts': 0.758014, 'Society': 0.0905029, 'Games': 0.0404046, 'Science': 0.0305192, 'Computers': 0.023625, 'Health': 0.0146723, 'Home': 0.0110422, 'Sports': 0.0110219, 'Recreation': 0.0105335, 'Business': 0.00966405, 'text_coverage': 0.648649}
