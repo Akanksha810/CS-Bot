@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 
 import{ Redirect, Link } from 'react-router-dom';
 import Footer from './Footer';
@@ -11,12 +11,15 @@ class InputPortal extends React.Component {
         this.state = {
             payloadBox : "",
             redirect : false,
-            summary_response: '',
-            classify_response: null,
+
             
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);        
+    }
+
+    componentDidMount() {
+        this.sendRequest()
     }
 
     handleChange(event) {
@@ -24,75 +27,32 @@ class InputPortal extends React.Component {
     }
 
     handleSubmit(event) {
-        this.sendRequest(this.state.payloadBox)
+        this.sendRequest()
+        this.setState({redirect:true})
         event.preventDefault();
     }
 
-    async sendRequest(payload) {
-        // console.log("Request length " + payload.length)
-        // var res = await fetch('http://localhost:5010/classify', {
-        //     method: 'POST',
-        //     body: payload,
-        //     headers: {
-        //         'Content-Type' : 'text/plain'
-        //     }
-        // }).then(res => {
-        //     return res;
-        // }).catch(err=> err);
-        var items = null;
-        var res = fetch('http://localhost:5010/classify', {
+    async sendRequest() {
+        var res = await fetch(BASE_URL + 'convert', {
             method:'POST',
-            body: payload,
+            body: this.state.payloadBox,
             headers:{
                 'Content-Type' : 'text/plain'
             }
         }).then (response => {
-            if (!response.ok){
-                throw new Error("HTTP status " + response.status);
-            }
             return response.json();
-        }).then(function(data) {
-            items = data;
-            console.log(items)
         })
-        console.log(items?items:"")
         
-        // this.setState({classifiy_response: res})
-        // console.log(this.state.classify_response)
-    }
-
-    onSubmit = (event) => {
-        
-        event.preventDefault()
-        // const payloadBox = {
-        //     payload: this.state.payloadBox
-        // }
-        // console.log(payloadBox.payload)
-        // 
-        // this.setState({
-        //     payloadBox: ''
-        // })
-        
-        // console.log(event.target.payloadBox)
-        this.setState({payload:event.target.value})
-        const payloadBox = {
-            payload: this.state.payloadBox
-        }
-        console.log(payloadBox)
-
     }
      
     render() {
-        if(this.state.redirect === true) {
-            return <Redirect to='/endpage'/>
-        }
-
+        
         return (
             <div className= "home-container">
                 <Header/>
                 <div className="text-area">
                     <label>
-                        <div className="textarea-label">Enter your Text here  &#11167;</div>
+                        <div className="textarea-label">Enter your Text here &#11167;</div>
                     </label>
                     <form onSubmit={this.handleSubmit}>
                     <div className = "textarea-item">
@@ -107,13 +67,14 @@ class InputPortal extends React.Component {
                         </textarea>
                     </div>
                     <div>
-                        {/* <Link to="/takeinput/re"> */}
-                        {/* <button className = "button" onSubmit={this.handleSubmit}>
-                            <span className="button-text" ></span>
-                        </button> */}
-                        {/* </Link> */}
-                        <input className = "button" type="submit" value="     Summarize 'n' Classify&#10148;    " />
+                        <input className = "button" type="submit" value="Submit Input" />
+                        <Link to="/takeinput/re">
+                            <button className="button" disabled={!this.state.redirect}>
+                                Redirect to Azul &#10148;
+                            </button>  
+                        </Link>
                     </div>
+                    
                     </form>
                 </div>
                 <Footer/>

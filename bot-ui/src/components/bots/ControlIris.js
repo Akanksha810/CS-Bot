@@ -1,6 +1,6 @@
 import React from 'react';
 import ChatBot from 'react-simple-chatbot';
-import { ThemeProvider } from 'styled-components';
+
 import{ Redirect } from 'react-router-dom';
 
 import Header from '../Header';

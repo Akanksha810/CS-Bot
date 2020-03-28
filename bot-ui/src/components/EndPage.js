@@ -1,12 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Footer from './Footer';
 import Header from './Header';
 
 class EndPage extends React.Component {
-    constructor(props) {
-        super(props)
-        
-    }
+    
     render() {
         return (
             <div className= "home-container">

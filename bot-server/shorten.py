@@ -29,13 +29,9 @@ class Summarizer:
             headers={'api-key': 'ca226d5b-37c8-4a18-b4f5-d385cac3f621'}
         )
         return r.json()['output']
-        # return r.json()
 
     def summarize_handler(self, raw_text):
         summary_json = self.set_INPUT_TEXT(raw_text).summarize()
         return self.set_OUTPUT_TEXT(summary_json).get_OUTPUT_TEXT()
-    
 
-r = open("./input.txt","r+")
-k = Summarizer()
-print (k.summarize_handler(r))
+

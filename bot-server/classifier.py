@@ -57,10 +57,10 @@ class Classifier:
         matrix_category = {}
         for i in matrix_list :
             matrix_category[i['@className']] = float(i['@p'])
+        matrix_category = dict(sorted(matrix_category.items(), key = lambda kv:(kv[1], kv[0]),reverse=True))
         matrix_category["text_coverage"] = float(text_coverage)
         return matrix_category
-   
-
+        
     def classifier_handler(self, raw_text) :
         classification_matrix = self.set_INPUT_TEXT(raw_text=raw_text).classify()
         return self.set_CLASSIFICATION_MATRIX(classification_matrix).get_CLASSIFICATION_MATRIX()

@@ -1,0 +1,1 @@
+{'Science': 0.65295, 'Home': 0.226704, 'Recreation': 0.0426841, 'Computers': 0.0263481, 'Health': 0.0180885, 'Society': 0.0104031, 'Business': 0.00920265, 'Games': 0.00731702, 'Arts': 0.00581849, 'Sports': 0.000483913, 'text_coverage': 0.688406}
